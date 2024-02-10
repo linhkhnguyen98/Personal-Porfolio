@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sophia Brown's Portfolio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Sophia Brown's Resume">
+        <meta name="keywords" content="student, portfolio, website, webpage, page">
+        <!-- <link rel="icon" type="image/x-icon" href="https://icons8.com/icon/3Cfptde5Kaaw/contact"> -->
+        <link type="image/png" sizes="16x16" rel="icon" href="/assests/contact.png">
+        <link rel="stylesheet" type="text/css" href="./style/style.css">
+
+        <style>
+        /* hw4 form */
+        #hw4-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+            margin: auto;
+        }
+
+        #name, #email, #comments, #submit{
+            margin: 10px 0;
+        }
+
+        output {
+            color: red; /* Error messages color */  
+        }
+
+        .valid{
+            color:rgb(23, 128, 233);
+        }
+        .warning{
+            color:rgb(238, 0, 255);
+        }
+        .invalid{
+            color:red;
+        }
+
+        .fade-out {
+            animation: fadeOut 3s forwards;
+            /* display: none; */
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 3;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        </style>
+    <body>
+        <main>
+            <h1>Contact</h1>
+
+            <form id="hw4-form" action="https://httpbin.org/post" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Full name" required pattern="[A-Za-z0-9\s]*" minlength="5" maxlength="30">
+                <output id="name-err" ></output>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Email" required minlength="5" maxlength="50">
+                <output id="email-err" ></output>
+
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments" required pattern="[A-Za-z0-9\s]*" minlength="5" maxlength="100"></textarea>
+                <output id="cmt-err" ></output>
+            
+                <input type="hidden" name="possible_bot" value="true">
+            
+                <input id="submit" type="submit" value="Submit">
+            </form>
+
+            <script>
+                // name
+                let name = document.getElementById("name");
+                let nameErr= document.getElementById("name-err");
+
+                name.addEventListener("input", (event) => {
+                if (name.value.length > name.minLength) {
+                    name.setCustomValidity("");
+                    nameErr.textContent = "";
+                    name.className = "user-valid";
+                }else{
+                    name.setCustomValidity("Please enter your full name");
+                    nameErr.textContent = "Please enter your full name";
+                
+                    // nameErr.classList.add('fade-out');
+                    
+                    }
+                });
+
+                // email
+                let email = document.getElementById("email");
+                let emailErr= document.getElementById("email-err");
+                const regExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                
+                email.addEventListener("input", (event) => {
+                    if (regExp.test(email.value)) {
+                        email.setCustomValidity("");
+                        emailErr.textContent = "";
+                        email.className = "user-valid";
+                    }else  if (email.validity.valueMissing) {
+                            // If the field is empty,
+                            // display the following error message.
+                            email.setCustomValidity("You need to enter an email address.");
+                            emailErr.textContent = "You need to enter an email address.";
+                            // emailErr.classList.add('fade-out');
+                    } else if (email.validity.typeMismatch) {
+                            // If the field doesn't contain an email address,
+                            // display the following error message.
+                            email.setCustomValidity("Entered value needs to be an email address.");
+                            emailErr.textContent = "Entered value needs to be an email address.";
+                            // emailErr.classList.add('fade-out');
+                    } else if (email.validity.tooShort) {
+                            // If the data is too short,
+                            // display the following error message.
+                            email.setCustomValidity("Please enter your full email address");
+                            emailErr.textContent = `Email should be at least ${email.minLength} characters; you entered ${email.value.length}.`;
+                            // emailErr.classList.add('fade-out');
+                    }
+                });
+
+                // comments
+                let comments = document.getElementById("comments");
+                let cmtErr= document.getElementById("cmt-err");
+                
+                comments.addEventListener("input", (event) => {
+                    const remainChar = comments.maxLength - comments.value.length;
+                    if(remainChar > 0){
+                        comments.setCustomValidity("");
+                        cmtErr.textContent = `Characters remaining: ${remainChar}`;
+                        cmtErr.className = "valid";
+                    }
+
+                    if (remainChar <= 10){
+                        cmtErr.setCustomValidity("");
+                        cmtErr.textContent = `You only have ${remainChar} left`;
+                        cmtErr.className = "warning";
+                    }
+
+                    if(remainChar == 0){
+                        cmtErr.textContent = `You have no more characters left`;
+                        cmtErr.className = "invalid";
+                    }
+                });
+
+                // submit button
+                let form = document.getElementById("hw4-form");
+                let submit = document.getElementById("submit");
+                let form_errors = [];
+                submit.addEventListener('click', function(event){
+                    if (!form.checkValidity()) {
+                        // event.preventDefault();
+                        let formErrorsJSON = JSON.stringify(formErrors);
+                        let formData = new FormData(form);
+                        form_errors.append(formData);
+                    } else {
+                        console.log("Valid form");
+                    }
+                });
+            </script>    
+            
+
+            <section class="contact-info">
+                <h3>My Contact Information</h3>
+                <p>Email: sophia.brown@gmail.com</p>
+                <p>Phone number: (669)888-0210</p>
+            </section>
+
+        </main>
+        <footer>
+            <nav>
+                <ul class="nav-links">
+                    <li class="center"><a href="index.html">Home Page</a></li>
+                    <li class="center"><a href="resume.html">Resume</a></li>
+                    <li class="center"><a href="contact.html">Contact</a></li>
+                    <!-- <li class="upward"><a href="form-no-js.html">Form-no-js</a></li> -->
+                </ul>
+            </nav>
+        </footer>
+    </body>
+</html>

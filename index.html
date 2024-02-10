@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sophia Brown's Portfolio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Sophia Brown's portfolio">
+        <meta name="keywords" content="student, portfolio, website, webpage, page">
+        <!-- <link rel="icon" type="image/x-icon" href="https://icons8.com/icon/2797/home"> -->
+        <link type="image/png" sizes="16x16" rel="icon" href="/assests/homepage.png">
+        <link rel="stylesheet" type="text/css" href="./style/style.css">
+        
+        <style>
+
+            h1 {
+                color: #800000
+            }
+
+            td, th{
+                border: 1px solid black;
+                padding: 8px;
+            }
+
+            .flex-container {
+                display: flex;
+                flex-wrap: nowrap;
+                /* background-color: clear; */
+            }
+
+            .flex-container > div {
+                /* background-color: pink; */
+                /* width: px; */
+                margin: 10px;
+                text-align: center;
+                line-height: 75px;
+                font-size: 30px;
+            }
+
+            .flex-container-second{
+                display: flex;
+                flex-wrap: nowrap;
+                /* background-color: clear; */
+            }
+
+            .flex-container-second > div {
+                /* background-color: pink; */
+                /* width: px; */
+                margin: 10px;
+                text-align: center;
+                line-height: 50px;
+                font-size: 20px;
+            }
+
+        </style>
+    </head>    
+    <body>
+        <header>
+            <h1><i>Hi, I'm Sophia Brown</i></h1>
+        </header>
+        <main>
+            <button id="theme-toggle">Theme</button>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const themeToggle = document.getElementById('theme-toggle');
+                    let currentTheme = localStorage.getItem('theme') || 'light';
+
+                    // Apply the saved theme
+                    document.body.classList.add(currentTheme + '-theme');
+
+                    // Toggle theme on button click
+                    themeToggle.addEventListener('click', function() {
+                        currentTheme = (currentTheme === 'light' ? 'dark' : 'light');
+                        document.body.classList.toggle('light-theme');
+                        document.body.classList.toggle('dark-theme');
+                        localStorage.setItem('theme', currentTheme);
+                    });
+                });
+
+            </script>
+            <div class="flex-container">
+                    <div>
+                        <picture>
+                            <source srcset="/assests/chopper.png" type="image/webp">
+                            <img alt="Picture of Chopper" src="/assets/chopper.webp" width="300">
+                        </picture>
+                    </div>
+                    
+                    <div id="aside-text">
+                        <aside>
+                            <p style="font-size:100%;">"I'm gonna try even <span style="color:red;font-weight:bold">harder</span> and be <span style="color:red;font-weight:bold">helpful</span> to everyone!"</p>
+                        </aside>
+                    </div>
+                    
+                </div>
+
+
+
+
+                <div class="flex-container-second">
+                    <div>
+                        <figure>
+                            <figcaption>Let's listen to some rain sound while checking out my page</figcaption>
+                            <!-- <audio controls src="/assests/lake-rain.mp3">
+                            </audio> -->
+                            <audio controls>
+                                <source src="/assests/lake-rain.mp3" type="audio/mp3">
+                            </audio>
+                        </figure>
+                    </div>
+
+                    <div>
+                        <p><b>Let's draw some transparent rectangles</b></p>
+                        <canvas id="myCanvas">
+                            This is three transparent rectangles
+                        </canvas>
+                    </div>
+
+                </div>
+                
+
+            <hr>
+
+            <section>
+                <h2 style="color:blueviolet"><em> Biography </em></h2>
+                
+                <p id="bio"><em>Hi there, I am a newly graduated student from UCSD. 
+                    As I'm stepping into the next chapter of my career, I'm excited to continue exploring the 
+                    synergy between algorithms and UI/UX design, with the ultimate goal 
+                    of contributing to innovative and user-centric technological solutions. 
+                    My journey at UCSD has laid a solid foundation, and I am poised to make a significant impact 
+                    in the world of computer engineering.
+                </em></p>
+            </section>
+
+            <section>
+                <h3>Fun Facts About Me</h3>
+
+                <ul id="fun-fact">
+                    <li><code>System.out.println()</code> is my nightmare -.-</li>
+                    <li>I enjoy front-end but hate working on small details T.T</li>
+                    <li>I want to be good at AI/ML but I'm too lazay to learn ~.~</li>
+                </ul>
+            </section>
+            
+            <!-- <iframe src="//www.google.com/"></iframe> -->
+            <form>
+                <fieldset>
+                    <legend id="academic"><strong>Acadamic History</strong></legend>
+                    <table class="table">
+                        <colgroup>
+                            <col span="1">
+                            <col span="1">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Courses Taken</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>CSE 100: Advanced Data Structures</td>
+                                <td>ECE 101: Linear Systems Fundamentals</td>
+                            </tr>
+                            <tr>
+                                <td>CSE 110: Software Engineering</td>
+                                <td>ECE 109: Engineering Probability & Statistics</td>
+                                
+                            </tr>
+                            <tr>
+                                <td>CSE 120: Principles of Computer Operating Systems</td>
+                                <td>ECE 111: Advanced Digital Design Project</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </fieldset>
+            </form>
+            <div id="svg-use">
+                <p style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-size: 1.2rem;">Let's me show you a surprise</p>
+                <button onclick="showContent()" style="font-size: 1rem;">Click on me</button>
+                <p style="font-size: 1rem;">See nothing?</p>
+                <p style="font-size: 1rem;">Scoll all the way down ^^</p>
+                <div>
+                <template>
+                    <h2>Eclipse</h2>
+                    <svg height="100%" width="100%" >
+                        <ellipse cx="100" cy="70" rx="85" ry="55" stroke="black" stroke-width="3" fill="pink" />
+                        <text x="100" y="75" font-size="20" text-anchor="middle" fill="white">Surprise!!!</text>
+                    </svg>
+                </template>
+    
+                <script>
+                function showContent() {
+                    let temp = document.getElementsByTagName("template")[0];
+                    let clon = temp.content.cloneNode(true);
+                    document.body.appendChild(clon);
+                }
+                </script>
+                </div>
+            </div>
+
+            
+            
+            <script>
+                const c = document.getElementById("myCanvas");
+                const ctx = c.getContext("2d");
+                ctx.fillStyle = "pink";
+                ctx.fillRect(20, 20, 75, 50);
+                
+                //Turn transparency on
+                ctx.globalAlpha = 0.2;
+                ctx.fillStyle = "purple"; 
+                ctx.fillRect(50, 50, 75, 50); 
+                ctx.fillStyle = "green"; 
+                ctx.fillRect(80, 80, 75, 50);
+            </script>
+
+        </main>
+
+        <footer>
+            <nav>
+                <ul class="nav-links">
+                    <li class="center"><a href="index.html">Home Page</a></li>
+                    <li class="center"><a href="resume.html">Resume</a></li>
+                    <li class="upward"><a href="contact.html">Contact</a></li>
+                    <li class="upward"><a href="form-no-js.html">Form-no-js</a></li>
+                </ul>
+            </nav>
+            
+        </footer>
+    </body>
+</html>

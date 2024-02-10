@@ -1,0 +1,306 @@
+/* Path: style/style.css */
+
+/* :root{
+    --main-bg-color: AntiqueWhite;
+    --color-1: #f1e4f8;
+    --color-2: #41bb73;
+} */
+
+:root {
+    /* Light theme colors */
+    --background-color-light: AntiqueWhite;
+    --text-color-light: #000000;
+
+    /* Dark theme colors */
+    --background-color-dark: #000000;
+    --text-color-dark: #ffffff;
+}
+
+body.light-theme {
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+}
+
+body.dark-theme {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+}
+
+#theme-toggle{
+    position: fixed;
+    top: 24px;
+    right: 70px;
+    width: 60px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f0cae6;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    /* z-index: 1000; */
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+@font-face {
+    font-family: Dancing-script;
+    src: url(../font/DancingScript-VariableFont_wght.ttf);
+}
+
+
+body{
+    background-color: var(--main-bg-color);
+}
+
+h1{
+    font-family: Dancing-script, 'Times New Roman', Times, serif;
+    text-align: center;
+    font-size: 3rem;
+}
+
+h2{
+    text-align: center;
+    font-size: 2rem;
+}
+
+h3{
+    color:#04645c;
+    text-align: center;
+    font-size: 1.5rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+form:has(table) {
+    background:rgba(212, 223, 236, 100);
+}
+
+
+.project{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.projects-list{
+    display: flex;
+    flex-direction: row;
+    column-gap: 5rem;
+}
+
+
+#academic{
+    text-align: center;
+    font-size: 1.5rem;
+    color: color(display-p3 0.947 0 0.5295);
+}
+
+.table{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: color-mix(in oklab, var(--color-1), var(--color-2) 0%);
+}
+
+.contact-msg{
+    margin: auto;
+    text-align: center;
+    max-width: 100%;
+}
+
+.contact-info{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.table-resume{
+    margin-left: auto;
+    margin-right: auto;
+    /* background-color: clear; */
+    font-size: 1.3rem;
+}
+
+#fun-fact{
+    text-align: center;
+    font-size: 1rem;
+    
+}
+
+#aside-text{
+    font-family: Dancing-script;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+#bio{
+    padding-top: 1dvh;
+    padding-bottom: 1dvh;
+    font-size: 1.2rem;
+}
+
+#svg-use{
+    text-align: center;
+}
+
+.nav-links{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0cae6;
+    padding: 20px 15px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.nav-links li{
+    list-style: none;
+    margin: 0 12px;
+}
+
+.nav-links li a{
+    position: relative;
+    color: #333;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 6px 0;
+    text-decoration: none;
+}
+
+.nav-links li a:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: #04645c;
+    border-radius: 12px;
+    transition: all 0.4s ease;
+}
+
+.nav-links li a:hover:before{
+    width: 100%;
+}
+
+.nav-links li.center a:before{
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-links li.upward a:before{
+    width: 100%;
+    bottom: -5px;
+    opacity: 0;
+}
+
+.nav-links li.upward a:hover:before{
+    bottom: 0px;
+    opacity: 1;
+}
+
+.nav-links li.forward a:before{
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+}
+
+.nav-links li.forward a:hover:before{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+
+
+/* Styles for phones */
+@media only screen and (max-width: 430px) {
+    h1, h2, h3 {
+        font-size: 2rem;
+        text-align: center;
+    }
+    div {
+        width: 100%;
+    }
+    
+    section{
+        width: 100%;
+    }
+
+    form{
+        width: 100%;
+    }
+
+    nav{
+        width: 100%;
+    }
+
+    body {
+        background-color: rgb(174, 208, 240);
+        color: black;
+        width: 100vw;
+    }
+
+    .projects-list{
+        display: flex;
+        flex-direction: column;
+        row-gap: 5rem;
+    }
+
+    .flex-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .flex-container-second{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-msg{
+        margin: auto;
+        text-align: center;
+        max-width: 100%;
+    }
+    
+}
+
+hr {
+    /* padding: 50px 0; */
+    border: none;
+    width: 100%;
+    border: 1px solid grey;
+}
+
+/* Styles for larger screens like desktops */
+
+@media only screen and (min-width: 1024px) {
+    h1, h2, h3 {
+        font-size: 3rem;
+        text-align: center;
+    }
+    div {
+        width: 100%;
+    }
+    
+    section{
+        width: 100%;
+    }
+
+    form{
+        width: 100%;
+    }
+
+    nav{
+        width: 100%;
+    }
+
+    #aside-text{
+        font-size: 3.5rem;
+        text-align: center;
+    }
+}
+
+
+/* THEME SWITCH */
+
+

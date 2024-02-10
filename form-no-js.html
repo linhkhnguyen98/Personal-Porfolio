@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sophia Brown's Portfolio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Sophia Brown's Resume">
+        <meta name="keywords" content="student, portfolio, website, webpage, page">
+        <!-- <link rel="icon" type="image/x-icon" href="https://icons8.com/icon/3Cfptde5Kaaw/contact"> -->
+        <link type="image/png" sizes="16x16" rel="icon" href="/assests/contact.png">
+        <link rel="stylesheet" type="text/css" href="./style/style.css">
+
+        <style>
+        /* hw4 form */
+        #hw4-form {
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+            margin: auto;
+        }
+
+        #name, #email, #comments, #submit{
+            margin: 10px 0;
+        }
+
+        /* hw4 part 2 */
+        input:user-valid {
+            border: 2px solid rgb(5, 218, 218);
+        }
+        input:user-invalid {
+            border: 2px solid red;
+        }
+
+        input:user-invalid + #name-err::before {
+        content: "Please enter your full name";
+        color: red;
+        }
+
+        input:user-invalid + #email-err::before {
+        content: "Please enter your email";
+        color: red;
+        }
+
+        input:user-invalid + #cmt-err::before {
+        content: "Please enter your comment longer";
+        color: red;
+        }
+
+        </style>
+    <body>
+        <main>
+            <h1>Contact</h1>
+
+            <form id="hw4-form" action="https://httpbin.org/post" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Full name" required pattern="[A-Za-z0-9\s]*" minlength="5" maxlength="20">
+                <span id="name-err"></span>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Email" required minlength="5" maxlength="20">
+                <span id="email-err"></span>
+
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments" required pattern="[A-Za-z0-9\s]*" minlength="5" maxlength="50"></textarea>
+                <span id="cmt-err"></span>
+            
+                <input type="hidden" name="possible_bot" value="true">
+            
+                <input id="submit" type="submit" value="Submit">
+            </form>
+            
+
+            <section class="contact-info">
+                <h3>My Contact Information</h3>
+                <p>Email: sophia.brown@gmail.com</p>
+                <p>Phone number: (669)888-0210</p>
+            </section>
+
+        </main>
+        <footer>
+            <nav>
+                <ul class="nav-links">
+                    <li class="center"><a href="index.html">Home Page</a></li>
+                    <li class="center"><a href="resume.html">Resume</a></li>
+                    <li class="center"><a href="contact.html">Contact</a></li>
+                    <li class="upward"><a href="form-no-js.html">Form-no-js</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </body>
+</html>

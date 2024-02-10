@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sophia Brown's Portfolio</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Sophia Brown's Resume">
+        <meta name="keywords" content="student, portfolio, website, webpage, page">
+        <!-- <link rel="icon" type="image/x-icon" href="https://icons8.com/icon/3Cfptde5Kaaw/contact"> -->
+        <link type="image/png" sizes="16x16" rel="icon" href="/assests/contact.png">
+        <link rel="stylesheet" type="text/css" href="./style/style.css">
+    <body>
+        <main>
+            <h1>Contact</h1>
+
+            <fieldset class="contact-msg">
+                <legend>Send Your Message To Me</legend>
+                <label for="method-select">Prefered Contact Method</label><br><br>
+                <select id="method-select" name="method">
+                    <optgroup label="contact method">
+                        <datalist>
+                            <option>Email</option>
+                            <option>Telephone</option>
+                            <option>Fax</option>
+                        </datalist>
+                    </optgroup>
+                </select>
+                <br><br>
+                <form action="https://httpbin.org/post" method="post" novalidate>
+                    <label for="fname">Full Name:</label><br>
+                    <input type="text" id="fname" name="fullname" placeholder="Your first and last name"><br>
+
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email" placeholder="Your email"required><br>
+                    
+                    <label for="contact-message">Your Message:</label><br>
+                    
+                    <!-- <textarea id="contact-form-message" name="message"> </textarea> -->
+                    <textarea id="w3review" name="w3review" rows="4" cols="50" style="max-width:100%;" 
+                                required minlength="10" maxlength="500" pattern="[A-Za-z0-9 .,!?]*"></textarea><br>
+
+                    <input type="hidden" name="possible_bot" value="true">
+
+                    <output id="error"></output>
+
+                    <output id="info"></output>
+
+
+                    <button type="submit">Submit</button>
+                </form>
+            </fieldset>
+
+            <section class="contact-info">
+                <h3>My Contact Information</h3>
+                <p>Email: sophia.brown@gmail.com</p>
+                <p>Phone number: (669)888-0210</p>
+            </section>
+
+        </main>
+        <footer>
+            <nav>
+                <ul class="nav-links">
+                    <li class="center"><a href="index.html">Home Page</a></li>
+                    <li class="center"><a href="resume.html">Resume</a></li>
+                    <li class="center"><a href="contact.html">Contact</a></li>
+                    <li class="upward"><a href="form-no-js.html">Form-no-js</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </body>
+</html>
