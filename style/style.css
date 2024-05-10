@@ -36,7 +36,6 @@ header{
     text-align: center;
     font-size: large;
     padding-right: 1rem;
-    /* width: 100%; */
 }
 
 #self-image{
@@ -45,7 +44,7 @@ header{
 }
 
 #self-pic{
-    width: 300;
+    width: 100%;
     padding-right: 1rem;
 }
 
@@ -122,23 +121,57 @@ header{
     transform-origin: left;
 }
 
-/* Styles for phones */
+/* Styles for desktop */
 
-@media only screen and (min-width: 375px){
+/* @media only screen and (max-width: 1080px){
     :root{
         --main-bg-color: AntiqueWhite;
         --text-color: #000000;
-        /* --text-color: pink; */
-        /* --font-family-all: Dancing-script; */
+        --font-family-all: Montserrat;
+        --padding-page: 10px;
+    }
+
+    #intro-box{
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        width: 100%;
+    }
+
+} */
+
+/* Styles for phones */
+
+@media only screen and (max-width: 450px){
+    :root{
+        --main-bg-color: AntiqueWhite;
+        --text-color: #000000;
         --font-family-all: Montserrat;
         --padding-page: 10px;
     }
 
     #intro-box{
         display: grid;
-        justify-content: space-between;
-        padding: 1rem;
+        /* justify-content: space-between; */
+        padding: 1 rem;
         width: 100%;
     }
 
+    #intro-text{
+        text-align: center;
+        font-size: small;
+        /* padding: 1rem; */
+        /* width: 100%; */
+    }
+    
+    #self-image{
+        width: 95%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-right: 1rem;
+    }
+
 }
+
+
