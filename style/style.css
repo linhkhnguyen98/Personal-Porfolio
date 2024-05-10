@@ -29,11 +29,23 @@ header{
     display: flex;
     justify-content: space-between;
     padding: 1rem;
+    width: 100%;
 }
 
 #intro-text{
     text-align: center;
     font-size: large;
+    padding-right: 1rem;
+    /* width: 100%; */
+}
+
+#self-image{
+    width: 100%;
+    padding-right: 1rem;
+}
+
+#self-pic{
+    width: 300;
     padding-right: 1rem;
 }
 
@@ -108,4 +120,25 @@ header{
 .nav-links li.forward a:hover:before{
     transform: scaleX(1);
     transform-origin: left;
+}
+
+/* Styles for phones */
+
+@media only screen and (max-width: 375px){
+    :root{
+        --main-bg-color: AntiqueWhite;
+        --text-color: #000000;
+        /* --text-color: pink; */
+        /* --font-family-all: Dancing-script; */
+        --font-family-all: Montserrat;
+        --padding-page: 10px;
+    }
+
+    #intro-box{
+        display: grid;
+        justify-content: space-between;
+        padding: 1rem;
+        width: 100%;
+    }
+
 }
