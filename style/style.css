@@ -124,7 +124,7 @@ header{
 
 /* Styles for phones */
 
-@media only screen and (max-width: 375px){
+@media only screen and (min-width: 375px){
     :root{
         --main-bg-color: AntiqueWhite;
         --text-color: #000000;
